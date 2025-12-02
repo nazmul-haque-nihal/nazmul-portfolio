@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazmul Haque Personal Portfolio | ML & Full-Stack Engineer</title>
+    <meta name="description" content="Explore Nazmul Haque's portfolio featuring projects, skills, and a personal resume. Expertise in Web Development, Machine Learning, and EEE.">
+    <meta name="keywords" content="Nazmul Haque, Nazmul, Nazmul Haque Nihal, Portfolio, Resume, Web Development, Machine Learning, Python, React, Flask, Electrical Engineering, GitHub, Projects, AI, Computer Vision">
+    <meta name="author" content="Nazmul Haque">
+    <meta http-equiv="Cache-Control" content="public, max-age=604800">
+    <meta http-equiv="Expires" content="604800">
+    <meta property="og:title" content="Nazmul Haque Personal Portfolio">
+    <meta property="og:description" content="Explore Nazmul Haque's portfolio featuring projects, skills, and a personal resume.">
+    <meta property="profile:github" content="https://github.com/nazmul-haque-nihal">
+    <meta property="profile:linkedin" content="https://www.linkedin.com/in/nazmul-haque-nihal/">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@primer/css@21.5.0/dist/primer.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0, #c3cfe2 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Playpen Sans', cursive;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Subtle background glow/noise */
+            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, .1) 0, transparent 50%), radial-gradient(circle at 80% 80%, rgba(252, 163, 17, .1) 0, transparent 50%), radial-gradient(circle at 40% 20%, rgba(139, 92, 246, .1) 0, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* --- Dark Mode Styles --- */
+        .dark-mode body {
+            background: linear-gradient(135deg, #1c1c1c 0, #3a3a3a 100%);
+            color: #f0f0f0;
+        }
+
+        .dark-mode .custom-card, .dark-mode .info-card, .dark-mode .cert-card {
+            background: #2a2a2a;
+            color: #f0f0f0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .8); /* Deeper shadows in dark mode */
+        }
+
+        .dark-mode .navbar-box {
+            background: rgba(42, 42, 42, 0.95); /* Semi-transparent background for sticky nav */
+        }
+
+        /* --- General Card & Layout Styles --- */
+        .custom-card, .cert-card, .info-card {
+             transition: all 0.3s ease;
+             border: none;
+             border-radius: 1rem; /* Slightly larger border radius */
+             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Softer, deeper shadow */
+             backdrop-filter: blur(8px); /* Subtle glassmorphism */
+             background: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* --- Skill/Platform Styles --- */
+        .skills-container, .platform-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem; /* Standardized spacing */
+            justify-content: center;
+        }
+
+        .skill-box, .platform-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: default;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            min-width: 100px;
+        }
+
+        .dark-mode .skill-box, .dark-mode .platform-item {
+             background: rgba(50, 50, 50, 0.9);
+             border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .skill-box:hover, .platform-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); /* Subtle gradient highlight */
+            color: white !important;
+        }
+
+        .skill-box:hover .skill-name, .platform-item:hover .platform-name {
+            color: #fff !important;
+        }
+
+        /* --- Animation Base --- */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: opacity 0.8s cubic-bezier(.17,.84,.44,1), transform 0.8s cubic-bezier(.17,.84,.44,1);
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* --- Hero Section & Title --- */
+        .hero-section {
+            padding: 4rem 1rem;
+        }
+        .hero-title .name-part {
+            background: linear-gradient(90deg, #e300ff 0%, #2575fc 100%); /* Brighter gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .hero-title .wave {
+            animation: wave-animation 2.5s infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+        }
+
+        @keyframes wave-animation {
+            0% { transform: rotate(0.0deg) }
+            10% { transform: rotate(14.0deg) }
+            20% { transform: rotate(-8.0deg) }
+            30% { transform: rotate(14.0deg) }
+            40% { transform: rotate(-4.0deg) }
+            50% { transform: rotate(10.0deg) }
+            60% { transform: rotate(0.0deg) }
+            100% { transform: rotate(0.0deg) }
+        }
+        .navbar-box {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white for light mode */
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        /* --- Portfolio Cards (Visibility FIX) --- */
+        .portfolio-card {
+            border: 1px solid #e0e0e0;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            flex: 0 0 calc(33.333% - 30px);
+            max-width: calc(33.333% - 30px);
+            margin: 15px;
+            
+            /* Default: Hidden and transparent. JS controls visibility */
+            display: none; 
+            opacity: 0;
+            
+            background: #ffffff;
+        }
+        
+        /* Class applied by JS to visible cards */
+        .portfolio-card.visible {
+            opacity: 1;
+            display: block; 
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .portfolio-card {
+             background: #333;
+             border-color: #444;
+        }
+        .portfolio-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* FIX 1: Project Thumbnail Sizing */
+        .portfolio-card-icon {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Filter Tabs Styling */
+        .filter-tab {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .filter-tab li {
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+        }
+        .dark-mode .filter-tab li {
+            color: #bbb;
+        }
+        .filter-tab li:hover {
+            color: #2575fc;
+            background: rgba(37, 117, 252, 0.1);
+        }
+        .filter-tab li.active {
+            color: #fff;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            box-shadow: 0 4px 10px rgba(37, 117, 252, 0.4);
+        }
+
+
+        /* --- Certificate Card Enhancements --- */
+        .cert-card {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Important for consistent sizing */
+            justify-content: space-between;
+        }
+        .cert-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        /* FIX 2: Certificate and Platform Logo Sizing */
+        .cert-org-icon {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            margin-right: 1rem;
+            padding: 5px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .dark-mode .cert-org-icon {
+            background: #1c1c1c;
+        }
+
+        .platform-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-item .platform-logo {
+            margin-right: 0;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .cert-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .cert-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* --- Responsiveness for portfolio cards --- */
+        @media (max-width: 992px) {
+            .portfolio-card {
+                flex: 0 0 calc(50% - 30px);
+                max-width: calc(50% - 30px);
+            }
+        }
+        @media (max-width: 768px) {
+            .portfolio-card {
+                flex: 0 0 calc(100% - 30px);
+                max-width: calc(100% - 30px);
+            }
+            .cert-card {
+                /* Make certificate cards full width on mobile */
+                max-width: 100%;
+            }
+        }
+        
+        /* --- Chatbot Removal --- */
+        .chat-icon, .chat-container, .chat-header, .chat-body, .chat-input-container {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body style="overflow-x: hidden;">
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDX3DDD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <audio id="clickSound" src="click-sound.mp3" preload="auto"></audio>
+
+    <div class="custom-loader-body" style="display: none !important;">
+        <div class="custom-loader-container">
+            <div class="custom-loader-name">
+                <span class="custom-loader-letter">N</span>
+                <span class="custom-loader-letter">a</span>
+                <span class="custom-loader-letter">z</span>
+                <span class="custom-loader-letter">m</span>
+                <span class="custom-loader-letter">u</span>
+                <span class="custom-loader-letter">l</span>
+                <span class="custom-loader-letter">&nbsp;</span>
+                <span class="custom-loader-letter">H</span>
+                <span class="custom-loader-letter">a</span>
+                <span class="custom-loader-letter">q</span>
+                <span class="custom-loader-letter">u</span>
+                <span class="custom-loader-letter">e</span>
+            </div>
+            <div class="custom-loader-line"></div>
+        </div>
+    </div>
+
+
+    <div class="main-page-custom">
+
+        <div class="navbar-box">
+            <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#" style="text-decoration: none;">
+                        <div class="name-box"><strong>Nazmul Haque</strong></div>
+                    </a>
+
+                    <button class="theme-toggle-btn mobile-visible" onclick="toggleDarkMode()">
+                        <i class="fa fa-moon"></i>
+                        <i class="fa fa-sun"></i>
+                    </button>
+
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars" style="font-size: 28px;"></i>
+                        <i class="fas fa-times" style="font-size: 28px;"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-home mr-1"></i><strong>Home</strong></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#techstack"><i class="fas fa-wrench mr-1 mt-n1"></i><strong>Skills</strong></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="fas fa-briefcase mr-1 mt-n1"></i><strong>Portfolio</strong></a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" onclick="showWritingsToast()"><i class="fas fa-pen mr-1 mt-n1"></i><strong>Writings</strong></a></li>
+                            <li class="nav-item"><a class="nav-link" href="certifications"><i class="fas fa-certificate mr-1 mt-n1"></i><strong>Certification</strong></a></li>
+                            <li class="nav-item d-none d-lg-inline-block">
+                                <button class="theme-toggle-btn" onclick="toggleDarkMode()">
+                                    <i class="fa fa-moon"></i>
+                                    <i class="fa fa-sun"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-section container text-center mx-auto custom-card">
+            <div class="hero-content d-flex align-items-center justify-content-center flex-column">
+                <h1 class="hero-title" style="font-weight: 900 !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important;">Hey, I'm <span class="name-part">Nazmul Haque</span> <span class="wave">👋</span></h1>
+                <p class="hero-lead">Electrical & Electronic Engineering Student and Full-stack Developer.</p>
+                <p class="hero-quote mt-3">"Programming enthusiast and student passionate about building innovative web applications, machine learning systems, and quantum-inspired solutions."</p>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3 head">
+                        <h3>Personal details</h3>
+                    </div>
+                    <div class="card fade-in-on-scroll custom-card shadow-sm">
+                        <div class="card-body">
+                            <div class="profile-image-3d">
+                                <img src="req/img/profile/pic1.png" alt="Nazmul Haque Profile" class="profile-photo" loading="lazy">
+                            </div>
+                            <p style="text-align: center; margin-bottom: 0;"><strong>Nazmul Haque Nihal</strong></p>
+                            <p style="text-align: center;">Lives in Rupganj, Dhaka, Bangladesh.</p>
+                            <div class="mb-3 text-center social-links">
+                                <span class="social-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                    <a href="https://linkedin.com/in/nazmul-haque-nihal" class="social-link-text">LinkedIn</a>
+                                </span>
+                                <span class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                    <a href="https://github.com/nazmul-haque-nihal" class="social-link-text">Github</a>
+                                </span>
+                                <span class="social-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:nazmulhaque.green@gmail.com" class="social-link-text">Email</a>
+                                </span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <a href="#" target="_blank" class="btn btn-outline-primary nb" style="margin: 0 auto; text-decoration: none;">View Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-6">
+                    <div class="d-flex justify-content-between align-items-center mb-3 head">
+                        <h3>Education</h3>
+                    </div>
+                    <div class="card fade-in-on-scroll custom-card shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="left">Credentials <i class="fas fa-info-circle" data-bs-toggle="modal" data-bs-target="#credentialsInfoModal"></i></h4>
+                            </div>
+
+                            <div class="d-flex align-items-center degree-section mb-4">
+                                <div class="icon-container me-3 mx-md-3">
+                                    <img src="req/img/others/grad1.png" alt="Degree Icon" style="width: 64px; height: 64px;" loading="lazy">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <strong>Green University of Bangladesh</strong>
+                                    <p>Bachelor's degree in Electrical & Electronic Engineering (EEE)</p>
+                                    <p class="text-muted">2022 - Present</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="credentialsInfoModal" tabindex="-1" aria-labelledby="credentialsInfoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="credentialsInfoModalLabel">Professional Summary</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h6>Electrical & Electronic Engineering Student</h6>
+                                    <p>
+                                        Electrical & Electronic Engineering student with expertise in full-stack web development, machine learning, and computer vision systems.
+                                    </p>
+                                    <p>
+                                        Proficient in **Python**, **JavaScript**, **React**, and **TensorFlow** with hands-on experience building blockchain applications and computer vision systems. Seeking to leverage technical skills in innovative software development roles.
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="info-section col-12 mb-3">
+                    <h3 class="info-title">About Me</h3>
+                    <div class="info-card mt-3 fade-in-on-scroll custom-card shadow-sm">
+                        <div class="info-card-body">
+                            <p>
+                                Hi, I'm **Nazmul Haque**. I am an Electrical & Electronic Engineering student with a strong passion for **Programming**, **Web Development**, **Machine Learning**, and **Quantum Computing**.
+                            </p>
+                            <p>
+                                I am proficient in **Python**, **JavaScript**, **React**, and **TensorFlow**. I have hands-on experience developing secure, decentralized applications (like my Blockchain Voting System), AI-powered chatbots (SPD Bot for Engineers), and innovative computer vision systems (Weapon Detection, Object Diameter Measurement).
+                            </p>
+                            <p>
+                                My academic background in EEE complements my technical skills in full-stack development, enabling me to tackle complex technical and mathematical challenges. I continuously explore new technologies and am dedicated to building efficient, scalable, and innovative software solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12 col-md-12 mt-3 mx-auto" id="techstack">
+                <h3 class="card-title mb-3">Technologies Worked On</h3>
+
+                <div class="card custom-card shadow-sm fade-in-on-scroll mb-3">
+                    <h4 class="center mb-3 mt-2">Programming & Languages</h4>
+                    <div class="skills-container text-center justify-content-center mb-3 py-3">
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/python--v1.png" alt="python" loading="lazy" /></div><div class="skill-name">Python</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/c-sharp.png" alt="c-sharp" loading="lazy" /></div><div class="skill-name">C#</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript" loading="lazy" /></div><div class="skill-name">JavaScript</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="java" loading="lazy" /></div><div class="skill-name">Java</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/c-plus-plus.png" alt="c-plus-plus" loading="lazy" /></div><div class="skill-name">C/C++</div></div>
+                    </div>
+                </div>
+
+                <div class="card custom-card shadow-sm fade-in-on-scroll mb-3">
+                    <h4 class="center mb-3 mt-2">Web Development, Backend & Tools</h4>
+                    <div class="skills-container text-center justify-content-center mb-3 py-3">
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/html-5--v1.png" alt="html" loading="lazy" /></div><div class="skill-name">HTML5</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/css3.png" alt="css" loading="lazy" /></div><div class="skill-name">CSS3</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/react-native.png" alt="react" loading="lazy" /></div><div class="skill-name">React</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="req/skills/flask.png" alt="Flask" loading="lazy" /></div><div class="skill-name">Flask</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/nodejs.png" alt="nodejs" loading="lazy" /></div><div class="skill-name">Node.js</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/firebase.png" alt="firebase" loading="lazy" /></div><div class="skill-name">Firebase</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/api-settings.png" alt="rest-api" loading="lazy" /></div><div class="skill-name">REST APIs</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/git.png" alt="git" loading="lazy" /></div><div class="skill-name">Git</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/github.png" alt="github" loading="lazy" /></div><div class="skill-name">GitHub</div></div>
+                    </div>
+                </div>
+
+                <div class="card custom-card shadow-sm fade-in-on-scroll" style="margin-top: 4rem;">
+                    <h4 class="center mb-3 mt-2">Machine Learning & Computer Vision</h4>
+                    <div class="skills-container text-center justify-content-center mb-3 py-3">
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/tensorflow.png" alt="tensorflow" loading="lazy" /></div><div class="skill-name">TensorFlow</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://pytorch.org/assets/images/pytorch-logo.png" alt="pytorch" loading="lazy" /></div><div class="skill-name">PyTorch</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit-learn" loading="lazy" /></div><div class="skill-name">Scikit-Learn</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://img.icons8.com/color/48/numpy.png" alt="numpy" loading="lazy" /></div><div class="skill-name">NumPy</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="req/skills/pandas.png" alt="Pandas" loading="lazy" /></div><div class="skill-name">Pandas</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://cdn-icons-png.flaticon.com/512/6033/6033716.png" alt="opencv" loading="lazy" /></div><div class="skill-name">OpenCV</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="matplotlib/seaborn" loading="lazy" /></div><div class="skill-name">Matplotlib/Seaborn</div></div>
+                        <div class="skill-box"><div class="skill-icon"><img width="28" height="28" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Matlab_Logo.png" alt="matlab" loading="lazy" /></div><div class="skill-name">MATLAB</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row hobbies-spacing">
+                <div class="col-lg-12 col-md-12 mb-3">
+                    <h3 class="card-title my-2 hobbies-title">Interests / Areas of Specialization</h3>
+                    <div class="card custom-card shadow-sm hb fade-in-on-scroll">
+                        <div class="card-body d-flex flex-wrap justify-content-start">
+                            <div class="hobby-box" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Web Development">
+                                <i class="hobby-icon fas fa-laptop-code"></i>
+                                <span class="hobby-name">Web Development</span>
+                            </div>
+                            <div class="hobby-box" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Machine Learning">
+                                <i class="hobby-icon fas fa-brain"></i>
+                                <span class="hobby-name">Machine Learning</span>
+                            </div>
+                            <div class="hobby-box" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Image Processing">
+                                <i class="hobby-icon fas fa-image"></i>
+                                <span class="hobby-name">Image Processing</span>
+                            </div>
+                            <div class="hobby-box" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Quantum Computing">
+                                <i class="hobby-icon fas fa-atom"></i>
+                                <span class="hobby-name">Quantum Computing</span>
+                            </div>
+                            <div class="hobby-box" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Learning New Technologies">
+                                <i class="hobby-icon fas fa-microchip"></i>
+                                <span class="hobby-name">New Tech</span>
+                            </div>
+                            <div class="hobby-box" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Competitive Programming">
+                                <i class="hobby-icon fas fa-code"></i>
+                                <span class="hobby-name">Coding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-section" id="portfolio">
+            <div class="container">
+                <h3 class="card-title mt-n3 mb-3 justify-content-start">Projects</h3>
+
+                <div class="col-12 filters-group-wrap justify-content-center ">
+                    <div class="filters-group mb-5 filters-container">
+                        <ul class="filter-tab">
+                            <li class="list-inline-item position-relative active" data-group="all">All</li>
+                            <li class="list-inline-item position-relative" data-group="ml">Machine Learning / AI</li>
+                            <li class="list-inline-item position-relative" data-group="web">Web Development</li>
+                            <li class="list-inline-item position-relative" data-group="cv">Computer Vision</li>
+                            <li class="list-inline-item position-relative" data-group="matlab">MATLAB</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="portfolio-cards-container mt-3 mx-lg-3 fade-in-on-scroll" id="portfolio-cards-container">
+
+                    <div class="portfolio-card" data-groups='["web", "ml"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/blockchain_voting.png" loading="lazy" alt="Blockchain Voting System" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">Blockchain Voting System</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/Blockchain-Security-green" alt="Blockchain-Security" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">PYTHON</span>
+                                <span class="portfolio-card-tag">FLASK</span>
+                                <span class="portfolio-card-tag">BLOCKCHAIN</span>
+                                <span class="portfolio-card-tag">CRYPTOGRAPHY</span>
+                                <span class="portfolio-card-tag">REAL-TIME</span>
+                                <span class="portfolio-card-tag">LEAD DEV</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="6">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://github.com/nazmul-haque-nihal/Blockchain-Voting-System" class="btn btn-outline-primary" target="_blank"><i class="fab fa-github me-1"></i> Repo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["web", "ml"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/spd_ai_chatbot.png" loading="lazy" alt="SPD Bot for Engineers" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">SPD Bot for Engineers (AI Chatbot)</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/AI-Chatbot-blue" alt="AI-Chatbot" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">REACT</span>
+                                <span class="portfolio-card-tag">FIREBASE</span>
+                                <span class="portfolio-card-tag">SSE</span>
+                                <span class="portfolio-card-tag">REAL-TIME</span>
+                                <span class="portfolio-card-tag">HIGH-UPTIME</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://nazmul-ai-chatbot.onrender.com" class="btn btn-outline-primary" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Live Demo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["web", "ml"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/spd_current_affairs.png" loading="lazy" alt="SPD Current Affairs" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">SPD Current Affairs (Summaries)</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/NLP-Summarization-red" alt="NLP-Summarization" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">FLASK</span>
+                                <span class="portfolio-card-tag">NLP</span>
+                                <span class="portfolio-card-tag">CUSTOMIZABLE</span>
+                                <span class="portfolio-card-tag">HIGH-ACCURACY</span>
+                                <span class="portfolio-card-tag">500+ USERS</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://spd-bd-current-affairs.onrender.com/" class="btn btn-outline-primary" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Live Demo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["cv", "matlab"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/image_processing_gui.png" loading="lazy" alt="Image Processing GUI" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">Object Diameter Measurement GUI</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/Computer-Vision-blue" alt="Computer-Vision" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">MATLAB</span>
+                                <span class="portfolio-card-tag">IMAGE PROCESSING</span>
+                                <span class="portfolio-card-tag">95% ACCURACY</span>
+                                <span class="portfolio-card-tag">GUI</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="4">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://github.com/nazmul-haque-nihal/ObjectDiameterMeasurement" class="btn btn-outline-primary" target="_blank"><i class="fab fa-github me-1"></i> Repo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["ml", "cv"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/weapon_detection.png" loading="lazy" alt="Weapon Detection System" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">Weapon Detection System (YOLO/SSD)</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/Machine-Learning-yellow" alt="Machine-Learning" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">PYTHON</span>
+                                <span class="portfolio-card-tag">OPENCV</span>
+                                <span class="portfolio-card-tag">YOLO/SSD</span>
+                                <span class="portfolio-card-tag">92% ACCURACY</span>
+                                <span class="portfolio-card-tag">OPTIMIZED</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://github.com/nazmul-haque-nihal/Weapon-Detection-System" class="btn btn-outline-primary" target="_blank"><i class="fab fa-github me-1"></i> Repo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["matlab"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/numerical_analysis_toolkit.png" loading="lazy" alt="Numerical Analysis Pro Toolkit" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">Numerical Analysis Pro Toolkit</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/Numerical-Analysis-orange" alt="Numerical-Analysis" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">MATLAB</span>
+                                <span class="portfolio-card-tag">REGULA FALSI</span>
+                                <span class="portfolio-card-tag">VISUALIZATION</span>
+                                <span class="portfolio-card-tag">200+ USERS</span>
+                                <span class="portfolio-card-tag">ALGORITHMS</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://github.com/nazmul-haque-nihal/Numerical-Analysis-Pro" class="btn btn-outline-primary" target="_blank"><i class="fab fa-github me-1"></i> Repo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["web", "ml"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/stock_market_tracker.png" loading="lazy" alt="Modern Stock Market Tracker" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">Modern Stock Market Tracker</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/RealTime-Finance-purple" alt="RealTime-Finance" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">PYTHON</span>
+                                <span class="portfolio-card-tag">PLOTLY</span>
+                                <span class="portfolio-card-tag">PREDICTION MODEL</span>
+                                <span class="portfolio-card-tag">ALPHA VANTAGE</span>
+                                <span class="portfolio-card-tag">RESPONSIVE UI</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://github.com/nazmul-haque-nihal/Modern-Stock-Market-Tracker" class="btn btn-outline-primary" target="_blank"><i class="fab fa-github me-1"></i> Repo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["web"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/secure_notes.png" loading="lazy" alt="Secure Notes" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">Secure Notes (Private Note-taking App)</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/Web-Security-blue" alt="Web-Security" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">REACT</span>
+                                <span class="portfolio-card-tag">FIREBASE</span>
+                                <span class="portfolio-card-tag">AUTHENTICATION</span>
+                                <span class="portfolio-card-tag">ENCRYPTION</span>
+                                <span class="portfolio-card-tag">300+ USERS</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://noteapp-723bc.web.app/" class="btn btn-outline-primary" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Live Demo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-groups='["web", "matlab"]'>
+                        <div class="portfolio-card-header">
+                            <img src="images/projects/thumbnails/university_projects.png" loading="lazy" alt="University Projects" class="portfolio-card-icon rounded">
+                            <h5 class="portfolio-card-title">University Coursework & Projects</h5>
+                            <p class="text-muted mb-2 fs-12 text-wrap text-center mt-2 mb-2 my-2"><img src="https://img.shields.io/badge/Coursework-Academic-gray" alt="Coursework-Academic" loading="lazy"></p>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <div class="tag-container">
+                                <span class="portfolio-card-tag">WEB APPS</span>
+                                <span class="portfolio-card-tag">MATLAB</span>
+                                <span class="portfolio-card-tag">NUMERICAL ANALYSIS</span>
+                                <span class="portfolio-card-tag">ALGORITHMS</span>
+                                <span class="portfolio-card-tag">CLIENT-SATISFACTION</span>
+                            </div>
+                            <button class="show-more-btn" data-tags="5">+ more</button>
+                            <div class="project-actions mt-3 d-flex justify-content-center gap-3">
+                                <a href="https://github.com/nazmul-haque-nihal" class="btn btn-outline-primary" target="_blank"><i class="fab fa-github me-1"></i> Repo</a>
+                                <a href="#" class="btn btn-outline-primary" target="_blank"><i class="fas fa-info-circle me-1"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="pagination-container" style="text-align: center;">
+                    <button class="page-nav" id="prevPage" disabled aria-label="Previous Page" title="Go to the previous page">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="page-button" id="currentPageButton" aria-label="Current Page" title="Current page: 1">
+                        1
+                    </button>
+                    <span class="page-info" aria-label="Total Pages">
+                        of <span id="totalPages"></span>
+                    </span>
+                    <button class="page-nav" id="nextPage" aria-label="Next Page" title="Go to the next page">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="direct-page-control justify-content-center ml-2 mx-2" aria-label="Go to Page Control">
+                        <span title="Select a page to navigate" style="font-weight: 700;">Go To Page</span>
+                        <select id="currentPageSelect" class="page-input" aria-label="Select Page"></select>
+                        <div class="pg d-none d-sm-block d-md-block" aria-label="Total Projects">
+                            <span title="Total number of pages" style="font-weight: 700;">Total <span id="dynamicTotalPages" style="margin-left: 5px; font-weight: 700;"></span></span>
+                            <span id="totalItems" style="margin-right: 5px; font-weight: 700;" title="Number of projects">Projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <h3 class="mb-4">Certifications (Placeholder)</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="cert-card fade-in-on-scroll custom-card shadow-sm">
+                        <div class="cert-header">
+                            <img src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/hq30ze9287y9ztkmcdhy" alt="Cert Org Logo" class="cert-org-icon">
+                            <div class="cert-info">
+                                <h5 class="cert-title">Certification Title 1</h5>
+                                <p class="cert-description">Issuing Organization</p>
+                                <p class="cert-date">Certified</p>
+                                <a href="#" target="_blank">View Certificate</a>
+                            </div>
+                        </div>
+                        <img src="images/certificates/cert_1.png" alt="Certificate Image Placeholder 1" class="cert-image">
+                    </div>
+                </div>
+                
+                </div>
+
+            <div class="text-center mb-4 mt-3">
+                <a href="certifications" target="_blank" class="btn btn-primary view-certifications-btn">
+                    <i class="fas fa-file-alt me-2"></i>
+                    View All Certifications
+                </a>
+            </div>
+        </div>
+
+        <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+            <div id="certificationsToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <i class="fas fa-hammer text-warning me-2"></i>
+                    <strong class="me-auto">🚧 Under Construction</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    <p class="mb-3">📋 The certifications page is currently being built!</p>
+                    <p class="mb-3">✨ In the meantime, you can explore all my certifications on LinkedIn:</p>
+                    <a href="https://linkedin.com/in/nazmul-haque-nihal-07-55b87a248/" target="_blank" class="btn btn-sm">
+                        <i class="fab fa-linkedin me-2"></i>
+                        View All Certificates
+                    </a>
+                </div>
+            </div>
+
+            <div id="writingsToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <i class="fas fa-rocket text-info me-2"></i>
+                    <strong class="me-auto">🚀 Building Modern Blog Engine</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    <p class="mb-3">✍️ Building a blogging platform to share my technical insights!</p>
+                    <p class="mb-3">🔧 Features in development: Markdown-powered content creation, Dynamic theming & syntax highlighting, Advanced search & categorization, Interactive comment system.</p>
+                    <p class="mb-3">🌟 **Coming Soon:** Deep dives into AI, Machine Learning, and tech topics!</p>
+                    <button class="btn btn-sm" onclick="this.closest('.toast').querySelector('.btn-close').click()">
+                        <i class="fas fa-bell me-2"></i>
+                        Stay Tuned!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container learning-platforms-section">
+            <h3 class="mb-4 mt-3">Learning Platform Profiles</h3>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-3">
+                    <div class="platform-card custom-card shadow-sm">
+                        <h3>Competitive Programming</h3>
+                        <div class="platform-group">
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/cc.png" alt="CodeChef Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">CodeChef</span>
+                            </div>
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/hr.png" alt="HackerRank Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">HackerRank</span>
+                            </div>
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/lc.png" alt="LeetCode Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">LeetCode</span>
+                            </div>
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/cf.png" alt="Codeforces Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">Codeforces</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 mb-3">
+                    <div class="platform-card custom-card shadow-sm">
+                        <h3>Online Learning Platforms</h3>
+                        <div class="platform-group">
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/cos.png" alt="Coursera Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">Coursera</span>
+                            </div>
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/dc.png" alt="DataCamp Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">DataCamp</span>
+                            </div>
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/ccc.png" alt="Codecademy Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name">Codecademy</span>
+                            </div>
+                            <div class="platform-item" title="Profile URL not yet enabled" data-bs-toggle="tooltip" data-bs-placement="top">
+                                <img src="images/gg.png" alt="Geeks for Geeks Logo" loading="lazy" class="platform-logo">
+                                <span class="platform-name text-wrap">GeeksforGeeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-icons-card text-center p-2">
+            <ul class="wrapper">
+                <li class="icon email">
+                    <a href="mailto:nazmulhaque.green@gmail.com" target="_blank" rel="noopener" aria-label="Email">
+                        <span class="tooltip">Email</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="icon github">
+                    <a href="https://github.com/nazmul-haque-nihal" target="_blank" rel="noopener" aria-label="GitHub">
+                        <span class="tooltip">GitHub</span>
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li class="icon linkedin">
+                    <a href="https://www.linkedin.com/in/nazmul-haque-nihal/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <span class="tooltip">LinkedIn</span>
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li class="icon phone">
+                    <a href="tel:01773865325" aria-label="Phone">
+                        <span class="tooltip">Phone</span>
+                        <i class="fas fa-phone"></i>
+                    </a
+                </li>
+            </ul>
+        </div>
+
+        <div class="card credits-card text-center p-2 mb-4">
+            <p class="m-2"><strong>Designed and Developed by Nazmul Haque Nihal</strong></p>
+        </div>
+
+        <div id="imageZoomModal" class="image-zoom-modal">
+            <span class="image-zoom-close">&times;</span>
+            <div class="image-zoom-content">
+                <img id="zoomedImage" src="" alt="Zoomed Certificate">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.1.0/shuffle.min.js" integrity="sha512-r8mIpk3ypCMwNxH6srRZGbjHQlOFt3Mq2vrZ/iymx6g9JUqTeVavofeX6gbrxAC74X5HmBy5gxyhCm6OiXrM0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@primer/css@21.5.0/dist/primer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Custom Loader (Retained from Source)
+        const minLoaderDuration = 3000;
+        const startLoadTime = Date.now();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const loader = document.querySelector('.custom-loader-body');
+            const mainPage = document.querySelector('.main-page-custom');
+
+            // Apply saved dark mode preference immediately
+            const savedTheme = localStorage.getItem('user-theme-preference');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.documentElement.classList.add('dark-mode');
+            } else if (savedTheme === 'light') {
+                document.body.classList.remove('dark-mode');
+                document.documentElement.classList.remove('dark-mode');
+            }
+
+            // Force hide loader immediately as requested
+            loader.style.display = 'none';
+            mainPage.style.display = 'block';
+            mainPage.style.opacity = '1';
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.body;
+            const html = document.documentElement;
+            body.classList.toggle('dark-mode');
+            html.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('user-theme-preference', isDark ? 'dark' : 'light');
+        }
+
+        // Smooth Scrolling (Retained from Source)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // AOS Initialization (Retained from Source)
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-out',
+            once: true,
+        });
+
+        // Portfolio Pagination & Filter (FINAL FIXED LOGIC)
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = Array.from(document.querySelectorAll('.portfolio-card'));
+            const filterTabs = document.querySelectorAll('.filter-tab li');
+            const totalPagesSpan = document.getElementById('totalPages');
+            const dynamicTotalPagesSpan = document.getElementById('dynamicTotalPages');
+            const currentPageButton = document.getElementById('currentPageButton');
+            const prevPageButton = document.getElementById('prevPage');
+            const nextPageButton = document.getElementById('nextPage');
+            const currentPageSelect = document.getElementById('currentPageSelect');
+            const cardsContainer = document.getElementById('portfolio-cards-container');
+            
+            let itemsPerPage = 8;
+            let currentPage = 1;
+            let filteredCards = cards;
+            
+            // Critical Step: Remove initial hiding class instantly (if you add it back in HTML for flicker control)
+            // Since it's not present in the HTML anymore, this line is harmless but kept for context:
+            // cardsContainer.classList.remove('hide-cards');
+
+            function updateCardsDisplay() {
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                
+                // Hide ALL cards and remove visibility class to reset animation
+                cards.forEach(card => {
+                    card.style.display = 'none';
+                    card.classList.remove('visible');
+                });
+                
+                // Show only the current page's filtered cards
+                filteredCards.slice(startIndex, endIndex).forEach((card, index) => {
+                    // Force display block first
+                    card.style.display = 'block'; 
+                    // Add visible class with a staggered delay for a clean fade-in effect
+                    setTimeout(() => {
+                        card.classList.add('visible'); 
+                    }, 50 * index); 
+                });
+            }
+
+            function setupPagination() {
+                const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+                totalPagesSpan.textContent = totalPages;
+                dynamicTotalPagesSpan.textContent = filteredCards.length;
+                currentPageButton.textContent = currentPage;
+                
+                currentPageSelect.innerHTML = '';
+                for (let i = 1; i <= totalPages; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.text = i;
+                    currentPageSelect.appendChild(option);
+                }
+                currentPageSelect.value = currentPage;
+                prevPageButton.disabled = currentPage === 1;
+                nextPageButton.disabled = currentPage >= totalPages;
+            }
+
+            function applyFilter(filter) {
+                // Determine which cards to show based on the filter group
+                filteredCards = filter === 'all' ?
+                    cards : cards.filter(card => {
+                        // Safely parse data-groups attribute
+                        try {
+                            const groups = JSON.parse(card.getAttribute('data-groups'));
+                            return groups.includes(filter);
+                        } catch (e) {
+                            return false;
+                        }
+                    });
+                
+                currentPage = 1;
+                setupPagination();
+                updateCardsDisplay();
+            }
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    applyFilter(this.getAttribute('data-group'));
+                });
+            });
+
+            prevPageButton.addEventListener('click', function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateCardsDisplay();
+                    setupPagination();
+                }
+            });
+
+            nextPageButton.addEventListener('click', function () {
+                if (currentPage < Math.ceil(filteredCards.length / itemsPerPage)) {
+                    currentPage++;
+                    updateCardsDisplay();
+                    setupPagination();
+                }
+            });
+
+            currentPageSelect.addEventListener('change', function () {
+                currentPage = parseInt(this.value);
+                updateCardsDisplay();
+                setupPagination();
+            });
+
+            // Run initial filter logic immediately on DOM load
+            applyFilter('all');
+        });
+
+        // Tooltip Initialization (Retained from Source)
+        document.addEventListener("DOMContentLoaded", function () {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        });
+
+        // Show More/Less Button (Retained from Source)
+        document.querySelectorAll('.show-more-btn').forEach(button => {
+            // Count all tags, hide all after the 4th, and update button text on load
+            const tagContainer = button.previousElementSibling;
+            const allTags = tagContainer.querySelectorAll('.portfolio-card-tag');
+            const hiddenCount = allTags.length > 4 ? allTags.length - 4 : 0;
+
+            if (hiddenCount > 0) {
+                for (let i = 4; i < allTags.length; i++) {
+                    allTags[i].style.display = 'none';
+                }
+                button.textContent = `+ ${hiddenCount} more`;
+                button.style.display = 'inline-block';
+            } else {
+                 button.style.display = 'none';
+            }
+
+            button.addEventListener('click', function () {
+                const tagContainer = this.previousElementSibling;
+                const hiddenTags = tagContainer.querySelectorAll('.portfolio-card-tag:nth-child(n+5)');
+
+                if (this.textContent.includes('more')) {
+                    hiddenTags.forEach(tag => tag.style.display = 'inline-block');
+                    this.textContent = 'Show less';
+                } else {
+                    hiddenTags.forEach(tag => tag.style.display = 'none');
+                    this.textContent = `+ ${hiddenCount} more`;
+                }
+            });
+        });
+
+        // Scroll Fade-In Animation (Retained from Source)
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Hobby/Skill Card Hover Animation (Retained from Source)
+        document.addEventListener("DOMContentLoaded", function() {
+            const skillBoxes = document.querySelectorAll('.skill-box');
+            skillBoxes.forEach(box => {
+                box.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const angleX = (y - centerY) / 10;
+                    const angleY = (centerX - x) / 10;
+                    this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.05, 1.05, 1.05)`;
+                });
+
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+
+            // Image Zoom Functionality (Retained from Source)
+            $('.cert-image').click(function() {
+              const imageSrc = $(this).attr('src');
+              const imageAlt = $(this).attr('alt');
+              $('#zoomedImage').attr('src', imageSrc);
+              $('#zoomedImage').attr('alt', imageAlt);
+              $('#imageZoomModal').fadeIn(300);
+              $('body').css('overflow', 'hidden');
+            });
+            $('.image-zoom-close').click(function() {
+              $('#imageZoomModal').fadeOut(300);
+              $('body').css('overflow', 'auto');
+            });
+            $('#imageZoomModal').click(function(e) {
+              if (e.target === this) {
+                $(this).fadeOut(300);
+                $('body').css('overflow', 'auto');
+              }
+            });
+            $(document).keyup(function(e) {
+              if (e.keyCode === 27) {
+                $('#imageZoomModal').fadeOut(300);
+                $('body').css('overflow', 'auto');
+              }
+            });
+        });
+
+        // Toast functions (Retained from Source)
+        function showCertificationsToast() {
+            const toastElement = document.getElementById('certificationsToast');
+            const toast = new bootstrap.Toast(toastElement, {autohide: true, delay: 5000});
+            toast.show();
+        }
+        function showWritingsToast() {
+            const toastElement = document.getElementById('writingsToast');
+            const toast = new bootstrap.Toast(toastElement, {autohide: true, delay: 8000});
+            toast.show();
+        }
+
+        // Click Sound (Retained from Source)
+        const clickSound = document.getElementById('clickSound');
+        document.querySelectorAll('button, a, input').forEach((element) => {
+            element.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play().catch(e => console.log("Sound play prevented or failed:", e));
+            });
+        });
+    </script>
+</body>
+</html>
